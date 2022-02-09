@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Festive&display=swap');
+
+.calculator{display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+margin-left: 20rem;
+margin-right: 20rem;
+padding: 1rem;
+border: 1px solid;
+border-color: black;
+border-radius: 2px;
+}
+
+.App {
+  text-align: center;
+}
+.AppTitle {font-family: 'Caveat', cursive;
+color:gold}
+.OP{background-color:gold;
+color:black;}
+.DEL{color: white;
+  background-color:red;}
+.EQ{color: white;
+  background-color:rgba(4, 128, 0, 0.746)}
+.CH{background-color:rgba(128, 128, 128, 0.527);
+  color:black;
+ }
+ .operators{   padding:0.5rem;}
+  .numbers{  
+    padding:0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1px;}
+button{font-family: 'Poppins', sans-serif;
+size:1.5em;}
+    button:hover { background:white;
+    color:black;}

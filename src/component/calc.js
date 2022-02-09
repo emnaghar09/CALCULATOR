@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
-import {InputGroup , FormControl } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+
 
 function calc() {
     const [num, setNum] = useState(0);
-   
+    const [oldnum, setOldNum] = useState(0);
+    const [operator, setOperator] = useState();
     // lets start with the functionalities
     
     // the input 
@@ -22,41 +24,62 @@ function calc() {
 
     // the delete button
     const clear =() =>{ setNum(0); }
+// check which operator the user chooses
+    const operatorHandler=(e) =>{
+        var operatorInput = e.target.value;
+        setOperator(operatorInput);
+        // to ask khalil about these lines
+        setOldNum(num);
+        setNum(0);
+    }
 
+    const calculate =() =>{
+        if (operator === "/") {
+        setNum(parseFloat(oldnum) / parseFloat(num));
+        } else if (operator === "X") {
+          setNum(parseFloat(oldnum) * parseFloat(num));
+        } else if (operator === "-") {
+        setNum(parseFloat(oldnum) - parseFloat(num));
+        } else if (operator === "+") {
+        setNum(parseFloat(oldnum) + parseFloat(num));
+        }
+    }
 
 return (
-
     <div className="calculator">
-<InputGroup className="mb-3">
-<FormControl aria-label="First name" />
-</InputGroup>
-    
-<div className="equal">
-<button className="EQ">=</button>
-<button className="DEL" onClick={clear}>DEL</button>
+    <h5 className="display"> {num} </h5>
 
-</div>
-<div className="operators">
-<button className="OP">+</button>
-<button className="OP">-</button>
-<button className="OP">/</button>
-<button className="OP">x</button>
-</div>
 <div className="numbers">
-<button className="CH" onClick={inputNum} value={1}>1</button>
-<button className="CH" onClick={inputNum} value={2}>2</button>
-<button className="CH"  onClick={inputNum} value={3} >3</button>
-<button className="CH" onClick={inputNum} value={4}>4</button>
-<button className="CH"  onClick={inputNum} value={5}>5</button>
-<button className="CH" onClick={inputNum} value={6}>6</button>
-<button className="CH" onClick={inputNum} value={7}>7</button>
-<button className="CH" onClick={inputNum} value={8}>8</button>
-<button className="CH" onClick={inputNum} value={9}>9</button>
-<button className="CH" onClick={inputNum} value={0}>0</button>
-<button className="DEL">.</button>
-<button className="EQ" onClick={percentage}>%</button>
-</div>
+<Button variant="success" onClick={calculate}>=</Button>
+<Button variant="danger" onClick={clear}>DEL</Button>
+{/* to ask khalil about the . line */}
+<Button variant="warning" onClick={inputNum} >.</Button>
 
+<Button variant="secondary" onClick={inputNum} value={1}>1</Button>
+<Button variant="secondary" onClick={inputNum} value={2}>2</Button>
+
+<Button variant="warning" onClick={operatorHandler} value="+">+</Button>
+
+<Button variant="secondary" onClick={inputNum} value={3} >3</Button>
+<Button variant="secondary" onClick={inputNum} value={4}>4</Button>
+
+<Button variant="warning" onClick={operatorHandler} value="-">-</Button>
+
+<Button variant="secondary" onClick={inputNum} value={5}>5</Button>
+<Button variant="secondary" onClick={inputNum} value={6}>6</Button>
+
+<Button variant="warning" onClick={operatorHandler} value="/" >/</Button>
+
+<Button variant="secondary" onClick={inputNum} value={7}>7</Button>
+<Button variant="secondary" onClick={inputNum} value={8}>8</Button>
+
+<Button variant="warning" onClick={operatorHandler} value="X">x</Button>
+
+<Button variant="secondary" onClick={inputNum} value={9}>9</Button>
+<Button variant="secondary" onClick={inputNum} value={0}>0</Button>
+
+<Button variant="warning" onClick={percentage}>%</Button>
+</div>
 </div>
 )
 }

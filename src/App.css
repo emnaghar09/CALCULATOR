@@ -7,35 +7,39 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-margin-left: 20rem;
-margin-right: 20rem;
+margin-left: 30rem;
+margin-right: 30rem;
 padding: 1rem;
 border: 1px solid;
 border-color: black;
 border-radius: 2px;
 }
+.display{
+padding: 0.2rem;
+  border: 1px solid;
+  border-color: black;
+  background-color:rgba(128, 128, 128, 0.253);
+  border-radius: 5px;
+  color:black;
+  width:170px;}
 
 .App {
   text-align: center;
 }
+
 .AppTitle {font-family: 'Caveat', cursive;
 color:gold}
-.OP{background-color:gold;
-color:black;}
-.DEL{color: white;
-  background-color:red;}
-.EQ{color: white;
-  background-color:rgba(4, 128, 0, 0.746)}
-.CH{background-color:rgba(128, 128, 128, 0.527);
-  color:black;
- }
- .operators{   padding:0.5rem;}
-  .numbers{  
+
+
+
+.numbers{  
     padding:0.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr ;
+    column-width: 5rem;
     grid-gap: 1px;}
-button{font-family: 'Poppins', sans-serif;
-size:1.5em;}
-    button:hover { background:white;
-    color:black;}
+
+
+button:hover { 
+  background:white;
+  color:black;}
